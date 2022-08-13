@@ -1,0 +1,11 @@
+version: "3"
+services:
+  client:
+    build: .
+    image: piotrostr/my-redis
+    depends_on: [redis]
+  redis:
+    image: rust
+    command: |
+      cargo install mini-redis && \
+        mini-redis-server
